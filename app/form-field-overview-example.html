@@ -1,0 +1,47 @@
+<form class="example-container">
+  
+  <mat-form-field>
+    <input matInput placeholder="First name">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput placeholder="Last name">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput placeholder="Username">
+  </mat-form-field>
+  
+
+  <label>Description (optional)
+  <mat-form-field>
+    <textarea matInput placeholder="Tell us more about you"></textarea>
+  </mat-form-field>
+  </label>
+
+  <label>Gender
+  <mat-form-field>
+    <mat-select placeholder="Select one">
+      <mat-option value="f">Female</mat-option>
+      <mat-option value="m">Male</mat-option>
+      <mat-option value="other">Other</mat-option>
+      <mat-option value="unsaid">I prefer not to say</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </label>
+
+
+  <div>
+    <button type="submit" mat-flat-button color="primary">Submit</button>
+  </div>
+  
+  <div>Error: Username already taken</div>
+
+  <div>Error: Please select a gender</div>
+
+  <div>Error: Your last name must be 3 chars or longer</div>
+
+  <div>Info: Thanks for giving us a quick intro about you</div>
+
+</form>
+
