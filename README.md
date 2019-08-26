@@ -11,6 +11,8 @@
 
 * Field by field validation
 * Use of FormBuilder & Form Control
-* Nicer UI/UX
+* Display a loader
+* Not using `.subscribe()` method in component class
+
 
 
