@@ -3,7 +3,6 @@ import { UsernameService } from './username.service';
 import { UserService } from './user.service';
 import { FormBuilder } from '@angular/forms';
 
-/** @title Simple form field */
 @Component({
   selector: 'form-field-overview-example',
   templateUrl: 'form-field-overview-example.html',
