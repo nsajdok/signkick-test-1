@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit()" class="example-container">
+<form [formGroup]="form" (ngSubmit)="submit()" class="example-container" *ngIf="!(loading$|async)">
   
   <mat-form-field>
     <input matInput placeholder="First name" formControlName="firstName" required>
@@ -43,4 +43,4 @@
   </div>
 
 </form>
-
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>

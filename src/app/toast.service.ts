@@ -7,7 +7,7 @@ import { MatSnackBar } from "@angular/material";
 export class ToastService {
     constructor(private matSnackBar: MatSnackBar) {}
 
-    show(message: string) {
-        this.matSnackBar.open(message);
+    show(message: string, duration: number) {
+        this.matSnackBar.open(message, null, { duration });
     }
 }

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {delay} from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 import { ToastService } from "./toast.service";
 
 export interface IUser {
@@ -16,13 +15,22 @@ export interface IUser {
 })
 export class UserService {
   private _users: IUser[] = [];
+  private subject: Subject<boolean> = new Subject();
 
   constructor(private _toastService: ToastService) {}
 
-
   createUser(user: IUser): void {
-    this._users.push(user);
+    this.subject.next(true);
 
-    this._toastService.show('Info: Thanks for giving us a quick intro about you')
+    setTimeout(() => {
+      this._users.push(user);
+      this._toastService.show('Info: Thanks for giving us a quick intro about you', 2000);
+      this.subject.next(false);
+    }, 2000);
+
+  }
+
+  isCreating(): Observable<boolean> {
+    return this.subject.asObservable();
   }
 }

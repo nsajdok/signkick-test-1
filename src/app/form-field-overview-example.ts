@@ -9,6 +9,8 @@ import {
 import existingUsernameValidator from "./username.validator";
 import { MatSnackBar } from "@angular/material";
 import { ToastService } from "./toast.service";
+import { mapTo } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'form-field-overview-example',
@@ -17,6 +19,8 @@ import { ToastService } from "./toast.service";
 })
 export class FormFieldOverviewExample {
   form: FormGroup;
+
+  loading$: Observable<boolean> = this._user.isCreating();
 
   constructor(
     private _user: UserService, 
@@ -39,6 +43,7 @@ export class FormFieldOverviewExample {
   submit() {
     if (this.form.valid) {
       this._user.createUser(this.form.value);
+      this.form.reset();
     }
   }
 }
