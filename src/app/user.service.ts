@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {delay} from 'rxjs/operators';
+import { ToastService } from "./toast.service";
 
 export interface IUser {
   firstName: string;
@@ -14,9 +15,14 @@ export interface IUser {
   providedIn: 'root'
 })
 export class UserService {
-  private users: IUser[] = [];
+  private _users: IUser[] = [];
+
+  constructor(private _toastService: ToastService) {}
+
 
   createUser(user: IUser): void {
-    this.users.push(user);
+    this._users.push(user);
+
+    this._toastService.show('Info: Thanks for giving us a quick intro about you')
   }
 }

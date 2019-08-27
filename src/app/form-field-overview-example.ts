@@ -7,6 +7,8 @@ import {
   Validators
 } from '@angular/forms';
 import existingUsernameValidator from "./username.validator";
+import { MatSnackBar } from "@angular/material";
+import { ToastService } from "./toast.service";
 
 @Component({
   selector: 'form-field-overview-example',
@@ -19,7 +21,7 @@ export class FormFieldOverviewExample {
   constructor(
     private _user: UserService, 
     private _formBuilder: FormBuilder,
-    private _username: UsernameService, 
+    private _username: UsernameService
   ) {
     this.form = this._formBuilder.group({
       firstName: [''],
