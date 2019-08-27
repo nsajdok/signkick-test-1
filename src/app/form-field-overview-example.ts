@@ -33,5 +33,11 @@ export class FormFieldOverviewExample {
       gender: ['']
     });
   }
+
+  submit() {
+    if (this.form.valid) {
+      // TODO: Create user if form is valid
+    }
+  }
 }
 
