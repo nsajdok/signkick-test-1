@@ -24,7 +24,7 @@ export class FormFieldOverviewExample {
     this.form = this._formBuilder.group({
       firstName: [''],
       lastName: [''],
-      userName: [
+      username: [
           '',
         [Validators.minLength(3) ], // minLength validator can be move to field attr in template
         [existingUsernameValidator(this._username)]
