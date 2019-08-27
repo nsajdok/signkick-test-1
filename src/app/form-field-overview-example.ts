@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { UsernameService } from './username.service';
 import { UserService } from './user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import existingUsernameValidator from "./username.validator";
 
 @Component({
   selector: 'form-field-overview-example',
@@ -19,7 +24,11 @@ export class FormFieldOverviewExample {
     this.form = this._formBuilder.group({
       firstName: [''],
       lastName: [''],
-      userName: ['', Validators.minLength(3)], // minLength validator can be move to field attr in template
+      userName: [
+          '',
+        [Validators.minLength(3) ], // minLength validator can be move to field attr in template
+        [existingUsernameValidator(this._username)]
+      ],
       description: [''],
       gender: ['']
     });
