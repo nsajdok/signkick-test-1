@@ -36,7 +36,7 @@ export class FormFieldOverviewExample {
 
   submit() {
     if (this.form.valid) {
-      // TODO: Create user if form is valid
+      this._user.createUser(this.form.value);
     }
   }
 }

@@ -14,7 +14,9 @@ export interface IUser {
   providedIn: 'root'
 })
 export class UserService {
+  private users: IUser[] = [];
+
   createUser(user: IUser): void {
-    console.log(user);
+    this.users.push(user);
   }
 }
