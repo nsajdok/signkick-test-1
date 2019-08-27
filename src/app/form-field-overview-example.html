@@ -1,17 +1,19 @@
 <form [formGroup]="form" class="example-container">
   
   <mat-form-field>
-    <input matInput placeholder="First name" formControlName="firstName">
+    <input matInput placeholder="First name" formControlName="firstName" required>
+    <mat-error>Error: First name is required.</mat-error>
   </mat-form-field>
   
   <mat-form-field>
-    <input matInput placeholder="Last name" formControlName="lastName">
+    <input matInput placeholder="Last name" formControlName="lastName" required>
+    <mat-error>Error: Last name is required.</mat-error>
   </mat-form-field>
   
   <mat-form-field>
-    <input matInput placeholder="Username" formControlName="userName">
+    <input matInput placeholder="Username" formControlName="userName" required>
+    <mat-error>Error: User name is required.</mat-error>
   </mat-form-field>
-  
 
   <label>Description (optional)
   <mat-form-field>
@@ -21,12 +23,13 @@
 
   <label>Gender
   <mat-form-field>
-    <mat-select placeholder="Select one" formControlName="gender">
+    <mat-select placeholder="Select one" formControlName="gender" required>
       <mat-option value="f">Female</mat-option>
       <mat-option value="m">Male</mat-option>
       <mat-option value="other">Other</mat-option>
       <mat-option value="unsaid">I prefer not to say</mat-option>
     </mat-select>
+    <mat-error>Error: Please select a gender</mat-error>
   </mat-form-field>
   </label>
 
@@ -36,8 +39,6 @@
   </div>
   
   <div>Error: Username already taken</div>
-
-  <div>Error: Please select a gender</div>
 
   <div>Error: Your username must be 3 chars or longer</div>
 
