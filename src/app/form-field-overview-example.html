@@ -12,7 +12,10 @@
   
   <mat-form-field>
     <input matInput placeholder="Username" formControlName="userName" required>
-    <mat-error>Error: User name is required.</mat-error>
+    <mat-error *ngIf="form.controls['userName'].errors; let errors">
+      <ng-container *ngIf="errors.required">Error: User name is required.</ng-container>
+      <ng-container *ngIf="errors.minlength">Error: Your username must be 3 chars or longer.</ng-container>
+    </mat-error>
   </mat-form-field>
 
   <label>Description (optional)
@@ -39,8 +42,6 @@
   </div>
   
   <div>Error: Username already taken</div>
-
-  <div>Error: Your username must be 3 chars or longer</div>
 
   <div>Info: Thanks for giving us a quick intro about you</div>
 
